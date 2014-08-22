@@ -6,19 +6,19 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Mono.Cecil;
-using NClirr.Core.AssemblyCheckers;
+using NClirr.Core.Checkers;
 
 namespace NClirr.Core
 {
     public sealed class Checker
     {
-        private readonly List<IAssemblyChecker> _assemblyCheckers;
+        private readonly List<IChecker<AssemblyDefinition>> _assemblyCheckers;
 
         public Checker()
         {
-            _assemblyCheckers = new List<IAssemblyChecker>
+            _assemblyCheckers = new List<IChecker<AssemblyDefinition>>
             {
-                new TypeComparingAssemblyChecker()
+                new AssemblyTypesChecker()
             };
         }
 

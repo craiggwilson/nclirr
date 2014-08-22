@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Mono.Cecil;
 
-namespace NClirr.Core.AssemblyCheckers
+namespace NClirr.Core.Checkers
 {
-    public class TypeFullNameComparer : IComparer<TypeDefinition>
+    public class MemberReferenceFullNameComparer : IComparer<MemberReference>
     {
-        public int Compare(TypeDefinition x, TypeDefinition y)
+        public int Compare(MemberReference x, MemberReference y)
         {
             if (x == null && y == null)
             {

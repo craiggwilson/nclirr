@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Mono.Cecil;
 
-namespace NClirr.Core.AssemblyCheckers.TypeCheckers
+namespace NClirr.Core.Checkers.Type
 {
-    public class ScopeTypeChecker : ITypeChecker
+    public class TypeScopeChecker : IChecker<TypeDefinition>
     {
         public IEnumerable<ApiDifference> Check(TypeDefinition oldType, TypeDefinition newType)
         {

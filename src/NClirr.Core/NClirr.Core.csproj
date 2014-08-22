@@ -52,26 +52,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiDifference.cs" />
+    <Compile Include="Checkers\AbstractParentChildChecker.cs" />
+    <Compile Include="Checkers\Member\FieldCheckers.cs" />
+    <Compile Include="Checkers\Member\FieldConstantChecker.cs" />
+    <Compile Include="Checkers\Member\FieldModifierChecker.cs" />
+    <Compile Include="Checkers\Type\TypeFieldsChecker.cs" />
+    <Compile Include="Checkers\Type\TypeGenderChecker.cs" />
+    <Compile Include="Checkers\Type\TypeInterfacesChecker.cs" />
     <Compile Include="Checker.cs" />
+    <Compile Include="Checkers\Type\TypeCheckers.cs" />
     <Compile Include="CoEnumerator.cs" />
-    <Compile Include="AssemblyCheckers\TypeCheckers\HierarchyTypeChecker.cs" />
+    <Compile Include="Checkers\Type\TypeHierarchyChecker.cs" />
     <Compile Include="ApiDifferenceKind.cs" />
-    <Compile Include="AssemblyCheckers\TypeCheckers\ModifierTypeChecker.cs" />
-    <Compile Include="AssemblyCheckers\TypeCheckers\ScopeTypeChecker.cs" />
-    <Compile Include="AssemblyCheckers\TypeComparingAssemblyChecker.cs" />
+    <Compile Include="Checkers\Type\TypeModifierChecker.cs" />
+    <Compile Include="Checkers\Type\TypeScopeChecker.cs" />
+    <Compile Include="Checkers\AssemblyTypesChecker.cs" />
     <Compile Include="FilteringReporter.cs" />
+    <Compile Include="IChecker.cs" />
     <Compile Include="IReporter.cs" />
-    <Compile Include="IAssemblyChecker.cs" />
-    <Compile Include="AssemblyCheckers\ITypeChecker.cs" />
     <Compile Include="MessageProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Severity.cs" />
-    <Compile Include="AssemblyCheckers\TypeFullNameComparer.cs" />
+    <Compile Include="Checkers\MemberReferenceFullNameComparer.cs" />
     <Compile Include="TextWriterReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

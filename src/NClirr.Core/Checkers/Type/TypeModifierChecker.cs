@@ -5,17 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Mono.Cecil;
 
-namespace NClirr.Core.AssemblyCheckers.TypeCheckers
+namespace NClirr.Core.Checkers.Type
 {
-    public class ModifierTypeChecker : ITypeChecker
+    public class TypeModifierChecker : IChecker<TypeDefinition>
     {
         public IEnumerable<ApiDifference> Check(TypeDefinition oldType, TypeDefinition newType)
         {
-            if(!oldType.IsPublic)
-            {
-                yield break;
-            }
-
             if(oldType.IsSealed && !newType.IsSealed)
             {
                 yield return new ApiDifference(

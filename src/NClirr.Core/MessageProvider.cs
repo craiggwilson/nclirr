@@ -10,44 +10,12 @@ namespace NClirr.Core
     {
         public string GetMessage(ApiDifference diff)
         {
-            switch(diff.Kind.Id)
+            if(diff.ExtraInfo != null)
             {
-                case 2000:
-                    return "Has been added.";
-                case 2001:
-                    return "Has been removed.";
-                case 2002:
-                    return "Visibility has been increased.";
-                case 2003:
-                    return "Visibility has been decreased.";
-                case 2004:
-                    return string.Format("{0} has been added to the hierarchy.", diff.ExtraInfo);
-                case 2005:
-                    return string.Format("{0} has been removed from the hierarchy.", diff.ExtraInfo);
-                case 2006:
-                    return "Is now sealed. Previously, it was effectively sealed.";
-                case 2007:
-                    return "Is now sealed.";
-                case 2008:
-                    return "Is no longer sealed.";
-                case 2009:
-                    return "Is now abstract.";
-                case 2010:
-                    return "Is no longer abstract.";
-                default:
-                    return GetFallbackMessage(diff);
-            }
-        }
-
-        protected virtual string GetFallbackMessage(ApiDifference diff)
-        {
-            var result = diff.Kind.GetType().Name;
-            if(diff.ExtraInfo != null && diff.ExtraInfo.Length > 0)
-            {
-                result += ": " + string.Join(",", diff.ExtraInfo);
+                return string.Format(diff.Kind.Message, diff.ExtraInfo);
             }
 
-            return result;
+            return diff.Kind.Message;
         }
     }
 }
